@@ -6,15 +6,24 @@ const COUPON = document.querySelector('.coupon')
 const copyText = (e) => {
     e.preventDefault();
 
-    COUPON.select();
-    COUPON.setSelectionRange(0, 999999);
-    document.execCommand("copy");
+    // execCommand is deprecated
+    // COUPON.select();
+    // COUPON.setSelectionRange(0, 999999);
+    // document.execCommand("copy");
 
-    BTN.textContent = "Copied!"
+    navigator.clipboard.writeText(COUPON.value)
+        .then(() => {
+            BTN.textContent = "Copied!"
+            setTimeout(() => {
+                BTN.textContent = "Copy"
+            }, 3000)
+        })
 
-    setTimeout(() => {
-        BTN.textContent = "Copy"
-    }, 3000)
+    // BTN.textContent = "Copied!"
+
+    // setTimeout(() => {
+    //    BTN.textContent = "Copy"
+    // }, 3000)
 }
 
 BTN.addEventListener("click", copyText)
