@@ -4,6 +4,7 @@ const c = setInterval(() => {
 
     const endDate = new Date(countTo);
     const currentDate = new Date();
+    // console.log(endDate - currentDate)
     const totalSeconds = (endDate - currentDate) / 1000;
 
     const days = Math.floor(totalSeconds / 3600 / 24); 
