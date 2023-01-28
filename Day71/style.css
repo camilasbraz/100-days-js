@@ -45,31 +45,126 @@ img {
   width: 100%;
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-h1 {
-  font-size: 2.5rem;
-  font-weight: 400;
-  color: var(--color-dark-grey);
-  margin-bottom: 1rem;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
 }
 
+.btn {
+  font-size: 2rem;
+  padding: 8px 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  margin: 1rem 0;
+  background: orangered;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.btn-warning {
+  background: #e69100;
+}
+
+.alert {
+  background: #f8d7da;
+  padding: 2rem 4rem;
+  min-width: 40rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  border-radius: 5px;
+  border-left: 8px solid transparent;
+  border-color: #d1281f;
+  transform: translateX(110%);
+}
+
+.alert.show {
+  animation: slide-in 1s ease forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+  }
+  40% {
+    transform: translateX(-10%);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-1rem);
+  }
+}
+
+.alert.hide {
+  animation: slide-out 1s ease forwards;
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(-1rem);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  80% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(110%);
+  }
+}
+
+.fa-exclamation-circle {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #721c24;
+  font-size: 3rem;
+}
+
+.msg {
+  padding: 0 2rem;
+  font-size: 1.8rem;
+  color: #721c24;
+}
+
+.close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  background: transparent;
+  padding: 2rem 1.8rem;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: #f3a1a7;
+}
+
+.close-btn .fas {
+  color: #721c24;
+  font-size: 2rem;
+}
+
+/* Adding Proress bar css */
 .progress-bar {
   width: 100%;
-  max-width: 40rem;
-  background-color: var(--color-grey);
-  border-radius: 0 50px 50px 0;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .progress {
   width: 0%;
-  height: 4rem;
-  line-height: 4rem;
+  height: 3px;
+  line-height: 3px;
   background-color: var(--color-primary);
-  text-align: center;
-  font-size: 1.6rem;
-  color: var(--white);
-  border-radius: 0 50px 50px 0;
 }
